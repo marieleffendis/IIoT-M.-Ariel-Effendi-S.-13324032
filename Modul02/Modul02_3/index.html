@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MQTT Chat Challenge 1</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <h2>IIoT Chat Room</h2>
+    <div id="messages" style="border:1px solid #ccc; height:200px; overflow-y:scroll; margin-bottom:10px; padding:10px;"></div>
+    
+    <input type="text" id="userInput" placeholder="Ketik pesan...">
+    <button onclick="sendMessage()">Kirim</button>
+</body>
+</html>
