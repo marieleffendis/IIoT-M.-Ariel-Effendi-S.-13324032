@@ -1,0 +1,1059 @@
+[
+    {
+        "id": "f415a07b0abc92c4",
+        "type": "tab",
+        "label": "Basic Node Red",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5e9dc75233b55014",
+        "type": "tab",
+        "label": "GET and POST",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "384b11bdc2d8677e",
+        "type": "tab",
+        "label": "Simulated Temperature Plant",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a52a0c0de02c140c",
+        "type": "tab",
+        "label": "MQTT Broker",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1d7b8d451f9ad40c",
+        "type": "tab",
+        "label": "Simulated IoT Node",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "94e0cc60b8b981a9",
+        "type": "tab",
+        "label": "Client",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ba14c4ba8bc1da53",
+        "type": "mqtt-broker",
+        "name": "Aedes MQTT",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "e6d076309623dbc2",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f2d3c533895dee2d",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "6f557606a862491e",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "e6d076309623dbc2",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "3919c716ab19109b",
+        "type": "inject",
+        "z": "f415a07b0abc92c4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "15",
+        "payloadType": "num",
+        "x": 250,
+        "y": 160,
+        "wires": [
+            [
+                "79c87e1abe03268d"
+            ]
+        ]
+    },
+    {
+        "id": "5d39c6bf1ad79c58",
+        "type": "inject",
+        "z": "f415a07b0abc92c4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "5",
+        "payloadType": "num",
+        "x": 250,
+        "y": 240,
+        "wires": [
+            [
+                "79c87e1abe03268d"
+            ]
+        ]
+    },
+    {
+        "id": "79c87e1abe03268d",
+        "type": "switch",
+        "z": "f415a07b0abc92c4",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "t": "lte",
+                "v": "10",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 490,
+        "y": 160,
+        "wires": [
+            [
+                "c05bc5c37b2007b2"
+            ],
+            [
+                "d77f79c5c530bbf1"
+            ]
+        ]
+    },
+    {
+        "id": "c05bc5c37b2007b2",
+        "type": "function",
+        "z": "f415a07b0abc92c4",
+        "name": "function 1",
+        "func": "msg.payload = \"atas\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 160,
+        "wires": [
+            [
+                "dc3491d42b58bcee"
+            ]
+        ]
+    },
+    {
+        "id": "d77f79c5c530bbf1",
+        "type": "function",
+        "z": "f415a07b0abc92c4",
+        "name": "function 2",
+        "func": "msg.payload = \"bawah\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 220,
+        "wires": [
+            [
+                "d950fa582e03b0db"
+            ]
+        ]
+    },
+    {
+        "id": "dc3491d42b58bcee",
+        "type": "debug",
+        "z": "f415a07b0abc92c4",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d950fa582e03b0db",
+        "type": "debug",
+        "z": "f415a07b0abc92c4",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "af833599d3b730e8",
+        "type": "http in",
+        "z": "5e9dc75233b55014",
+        "name": "",
+        "url": "/latihan2",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 350,
+        "y": 140,
+        "wires": [
+            [
+                "2969c38e04996a73"
+            ]
+        ]
+    },
+    {
+        "id": "2969c38e04996a73",
+        "type": "template",
+        "z": "5e9dc75233b55014",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html>\n    <head>\n        <title>Hello dari Node Red</title>\n    </head>\n    <body>\n        <h1>Hello Dunia!</h1>\n        Node Red Keren\n\n        <p>Pilih mode run:</p>\n        <form action=\"./latihan2\" method=\"post\" name=\"myform\">\n            <input type=\"radio\" id=\"start\" name=\"run\" value=\"start\">\n            <label for=\"run1\">start</label><br> \n            <input type=\"radio\" id=\"stop\" name=\"run\" value=\"stop\">\n            <label for=\"run2\">stop</label><br> \n            <input type=\"submit\" value=\"submit\">\n        </form>\n    </body>\n</html>",
+        "output": "str",
+        "x": 540,
+        "y": 140,
+        "wires": [
+            [
+                "3f9dd97c8267c015"
+            ]
+        ]
+    },
+    {
+        "id": "3f9dd97c8267c015",
+        "type": "http response",
+        "z": "5e9dc75233b55014",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 730,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "159c980e1262d17a",
+        "type": "http in",
+        "z": "5e9dc75233b55014",
+        "name": "",
+        "url": "/latihan2",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 320,
+        "y": 360,
+        "wires": [
+            [
+                "5440dbd068d86dbd",
+                "01eeb32cdda812f1"
+            ]
+        ]
+    },
+    {
+        "id": "5440dbd068d86dbd",
+        "type": "function",
+        "z": "5e9dc75233b55014",
+        "name": "function 3",
+        "func": "msg.headers = {};\nmsg.headers['Content-Type'] = 'application/json';\n\nif (msg.req.body.run == \"start\") {\n    msg.statusCode = 200;\n    msg.payload = {\n        \"info\": \"Request received correctly, runStatus will turn to start\"\n    };\n} else if (msg.req.body.run == \"stop\") {\n    msg.statusCode = 200;\n    msg.payload = {\n        \"info\": \"Request received correctly, runStatus will turn to stop\"\n    };\n} else {\n    msg.statusCode = 400;\n    msg.payload = {\n        \"info\": \"Request received but in wrong format.\"\n    };\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 260,
+        "wires": [
+            [
+                "e4e4e3215a41504a",
+                "01eeb32cdda812f1",
+                "3f9dd97c8267c015"
+            ]
+        ]
+    },
+    {
+        "id": "e4e4e3215a41504a",
+        "type": "debug",
+        "z": "5e9dc75233b55014",
+        "name": "msg.payload.info",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.info",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "01eeb32cdda812f1",
+        "type": "debug",
+        "z": "5e9dc75233b55014",
+        "name": "msg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "5aa419e0dd829fc0",
+        "type": "inject",
+        "z": "384b11bdc2d8677e",
+        "name": "Initial trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 250,
+        "y": 180,
+        "wires": [
+            [
+                "1e085a91d72650a1"
+            ]
+        ]
+    },
+    {
+        "id": "ecaf24c092d2b6b2",
+        "type": "inject",
+        "z": "384b11bdc2d8677e",
+        "name": "Heater On",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 240,
+        "y": 300,
+        "wires": [
+            [
+                "4889cbfb29963cdd"
+            ]
+        ]
+    },
+    {
+        "id": "1e085a91d72650a1",
+        "type": "change",
+        "z": "384b11bdc2d8677e",
+        "name": "Dynamic Initialization",
+        "rules": [
+            {
+                "t": "set",
+                "p": "x_temperature",
+                "pt": "flow",
+                "to": "25",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "k_dissipation",
+                "pt": "flow",
+                "to": "0.1",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "k_ambient",
+                "pt": "flow",
+                "to": "2",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "u_heater",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "k_temp_increment",
+                "pt": "flow",
+                "to": "3",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 180,
+        "wires": [
+            [
+                "3f0c06786ccbaa95"
+            ]
+        ]
+    },
+    {
+        "id": "4889cbfb29963cdd",
+        "type": "change",
+        "z": "384b11bdc2d8677e",
+        "name": "Heater Device",
+        "rules": [
+            {
+                "t": "set",
+                "p": "u_heater",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3f0c06786ccbaa95",
+        "type": "trigger",
+        "z": "384b11bdc2d8677e",
+        "name": "Periodic Trigger",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "num",
+        "op2type": "num",
+        "duration": "-250",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 680,
+        "y": 180,
+        "wires": [
+            [
+                "2313512fb06b1a3e"
+            ]
+        ]
+    },
+    {
+        "id": "2313512fb06b1a3e",
+        "type": "function",
+        "z": "384b11bdc2d8677e",
+        "name": "Plant Dynamics",
+        "func": "// Mengambil variabel dari flow context\nvar k_d = flow.get(\"k_dissipation\");\nvar T_now = flow.get(\"x_temperature\");\nvar k_a = flow.get(\"k_ambient\");\nvar u = flow.get(\"u_heater\");\nvar k_inc = flow.get(\"k_temp_increment\");\n\n// Menghitung suhu berikutnya berdasarkan rumus dinamika sistem\nvar T_next = T_now - (k_d * T_now) + (k_a) + (u * k_inc);\n\n// Mengupdate nilai T_now\nT_now = T_next;\n\n// Menyimpan kembali suhu terbaru ke flow context\nflow.set(\"x_temperature\", T_now);\n\n// Menyiapkan pesan output\nmsg = {\n    topic: \"y_temperature\",\n    payload: T_now\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 180,
+        "wires": [
+            [
+                "ed0cdc0718236c9b"
+            ]
+        ]
+    },
+    {
+        "id": "ed0cdc0718236c9b",
+        "type": "debug",
+        "z": "384b11bdc2d8677e",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "43663b5ce1d1936b",
+        "type": "aedes broker",
+        "z": "a52a0c0de02c140c",
+        "name": "",
+        "mqtt_port": 1883,
+        "mqtt_ws_bind": "port",
+        "mqtt_ws_port": "",
+        "mqtt_ws_path": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "persistence_bind": "memory",
+        "dburl": "",
+        "persist_to_file": false,
+        "usetls": false,
+        "x": 430,
+        "y": 140,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "0c4a13e7100cdc0e",
+        "type": "inject",
+        "z": "1d7b8d451f9ad40c",
+        "name": "Initial trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "8e84df317bc4ce16"
+            ]
+        ]
+    },
+    {
+        "id": "8e84df317bc4ce16",
+        "type": "change",
+        "z": "1d7b8d451f9ad40c",
+        "name": "Dynamic Initialization",
+        "rules": [
+            {
+                "t": "set",
+                "p": "x_height",
+                "pt": "flow",
+                "to": "40",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "k_output",
+                "pt": "flow",
+                "to": "0.2",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "f_environment",
+                "pt": "flow",
+                "to": "3",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "u_pump",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "f_input",
+                "pt": "flow",
+                "to": "5",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 180,
+        "wires": [
+            [
+                "aa4172eec2fde3f0"
+            ]
+        ]
+    },
+    {
+        "id": "d7fbf33f9b91b468",
+        "type": "change",
+        "z": "1d7b8d451f9ad40c",
+        "name": "Fluid Container Device",
+        "rules": [
+            {
+                "t": "set",
+                "p": "u_pump",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "18175bcb9a4c36c5",
+        "type": "function",
+        "z": "1d7b8d451f9ad40c",
+        "name": "Plant Dynamics",
+        "func": "// Mengambil variabel dari flow context\nvar k_out = flow.get(\"k_output\");\nvar H_now = flow.get(\"x_height\");\nvar f_env = flow.get(\"f_environment\");\nvar u = flow.get(\"u_pump\");\nvar f_in = flow.get(\"f_input\");\n\n// Menghitung suhu berikutnya berdasarkan rumus dinamika sistem\nvar H_next = H_now - (k_out * H_now) + (f_env) + (u * f_in);\n\n// Mengupdate nilai T_now\nH_now = H_next;\n\n// Menyimpan kembali suhu terbaru ke flow context\nflow.set(\"x_height\", H_now);\n\n// Menyiapkan pesan output\nmsg = {\n    topic: \"y_height\",\n    payload: H_now\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 180,
+        "wires": [
+            [
+                "c4f39ea2d5eb3bea"
+            ]
+        ]
+    },
+    {
+        "id": "c4f39ea2d5eb3bea",
+        "type": "mqtt out",
+        "z": "1d7b8d451f9ad40c",
+        "name": "",
+        "topic": "HH101_Height",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ba14c4ba8bc1da53",
+        "x": 960,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "32f31e0564e597c8",
+        "type": "mqtt in",
+        "z": "1d7b8d451f9ad40c",
+        "name": "",
+        "topic": "HC101_Pump",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "ba14c4ba8bc1da53",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 300,
+        "wires": [
+            [
+                "d7fbf33f9b91b468"
+            ]
+        ]
+    },
+    {
+        "id": "aa4172eec2fde3f0",
+        "type": "trigger",
+        "z": "1d7b8d451f9ad40c",
+        "name": "Periodic Trigger",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "-0.5",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 540,
+        "y": 180,
+        "wires": [
+            [
+                "18175bcb9a4c36c5"
+            ]
+        ]
+    },
+    {
+        "id": "0f591e2a2ebea7ee",
+        "type": "mqtt in",
+        "z": "94e0cc60b8b981a9",
+        "name": "",
+        "topic": "HH101_Height",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "ba14c4ba8bc1da53",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 160,
+        "wires": [
+            [
+                "91a7e56b573e15d7",
+                "dc89a4519641d6fb"
+            ]
+        ]
+    },
+    {
+        "id": "91a7e56b573e15d7",
+        "type": "ui_gauge",
+        "z": "94e0cc60b8b981a9",
+        "name": "",
+        "group": "6f557606a862491e",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Fluid Plant",
+        "label": "Height",
+        "format": "{{value|number:2}} m",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 590,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "dc89a4519641d6fb",
+        "type": "debug",
+        "z": "94e0cc60b8b981a9",
+        "name": "msg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "411e366ce7eb35a3",
+        "type": "ui_switch",
+        "z": "94e0cc60b8b981a9",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "6f557606a862491e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 550,
+        "y": 440,
+        "wires": [
+            [
+                "fd6881c59a9f75eb"
+            ]
+        ]
+    },
+    {
+        "id": "e23cebe09ff9afe5",
+        "type": "inject",
+        "z": "94e0cc60b8b981a9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 310,
+        "y": 440,
+        "wires": [
+            [
+                "411e366ce7eb35a3"
+            ]
+        ]
+    },
+    {
+        "id": "fd6881c59a9f75eb",
+        "type": "mqtt out",
+        "z": "94e0cc60b8b981a9",
+        "name": "",
+        "topic": "HC101_Pump",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ba14c4ba8bc1da53",
+        "x": 780,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "1966eaa62b4a8f83",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6",
+            "node-red-contrib-aedes": "1.2.0"
+        }
+    }
+]
