@@ -1,0 +1,33 @@
+{
+  "categories": [
+    {
+      "id": 0,
+      "name": "Hitam"
+    },
+    {
+      "id": 1,
+      "name": "Putih"
+    },
+    {
+      "id": 2,
+      "name": "blue"
+    },
+    {
+      "id": 3,
+      "name": "green"
+    },
+    {
+      "id": 4,
+      "name": "red"
+    },
+    {
+      "id": 5,
+      "name": "yellow"
+    }
+  ],
+  "info": {
+    "year": 2026,
+    "version": "1.0",
+    "contributor": "Label Studio"
+  }
+}
