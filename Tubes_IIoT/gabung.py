@@ -4,6 +4,7 @@ import subprocess
 import sys
 import os
 import threading
+from tkinter import filedialog
 
 # ==========================================
 # KONFIGURASI TAMPILAN (Style)
@@ -85,7 +86,7 @@ class DobotIntegratedApp(tk.Tk):
         
         # Cek folder unit_test jika tidak ada di root
         if not os.path.exists(path):
-             path = os.path.join(base_path, "unit_test", script_name)
+            path = os.path.join(base_path, "unit_test", script_name)
         
         return path
 
@@ -148,8 +149,7 @@ class LoginPage(tk.Frame):
         self.entry_pass.grid(row=1, column=1, padx=10, pady=5)
         self.entry_pass.insert(0, "1234") # Default
 
-        tk.Button(self, text="LOGIN", font=FONT_BTN, bg="#27ae60", fg="white", width=15, 
-                  command=self.check_login).pack(pady=30)
+        tk.Button(self, text="LOGIN", font=FONT_BTN, bg="#27ae60", fg="white", width=15, command=self.check_login).pack(pady=30)
 
     def check_login(self):
         if self.entry_user.get() == "pi" and self.entry_pass.get() == "1234":
@@ -177,19 +177,18 @@ class ModeSelectionPage(tk.Frame):
 
         # Tombol Mode 1: Direct Control (Posisi A/B/C/D Manual)
         btn_mode1 = tk.Button(btn_container, text="MODE 1\nDirect Control\n(Trigger Tombol)", 
-                              font=FONT_BTN, bg=COLOR_BTN_1, fg="white", width=20, height=5,
-                              command=lambda: controller.show_frame("DirectControlPage"))
+                            font=FONT_BTN, bg=COLOR_BTN_1, fg="white", width=20, height=5,
+                            command=lambda: controller.show_frame("DirectControlPage"))
         btn_mode1.grid(row=0, column=0, padx=30, pady=20)
 
         # Tombol Mode 2: Smart Sorting (Configurable)
         btn_mode2 = tk.Button(btn_container, text="MODE 2\nSmart Sorting\n(Konfigurasi Warna)", 
-                              font=FONT_BTN, bg=COLOR_BTN_2, fg="white", width=20, height=5,
-                              command=lambda: controller.show_frame("SmartSortPage"))
+                            font=FONT_BTN, bg=COLOR_BTN_2, fg="white", width=20, height=5,
+                            command=lambda: controller.show_frame("SmartSortPage"))
         btn_mode2.grid(row=0, column=1, padx=30, pady=20)
 
         # Tombol Logout
-        tk.Button(self, text="Logout", font=FONT_BODY, bg="#95a5a6", fg="white",
-                  command=lambda: controller.show_frame("LoginPage")).pack(pady=30)
+        tk.Button(self, text="Logout", font=FONT_BODY, bg="#95a5a6", fg="white", command=lambda: controller.show_frame("LoginPage")).pack(pady=30)
 
 
 # ==========================================
@@ -207,24 +206,34 @@ class DirectControlPage(tk.Frame):
         grid_frame = tk.Frame(self, bg=COLOR_ACCENT)
         grid_frame.pack(expand=True)
 
-        self.btn_params = {'font': FONT_BODY, 'bg': COLOR_BTN_1, 'fg': "white", 'width': 15, 'height': 2}
+        self.btn_params = {'font': FONT_BODY, 'bg': COLOR_BTN_1, 'fg': "white", 'width': 8, 'height': 4}
         self.buttons = []
 
-        # Membuat tombol trigger script
-        self.create_btn(grid_frame, "POSISI A", "posA.py", 0, 0)
-        self.create_btn(grid_frame, "POSISI B", "posB.py", 0, 1)
-        self.create_btn(grid_frame, "POSISI C", "posC.py", 1, 0)
-        self.create_btn(grid_frame, "POSISI D", "posD.py", 1, 1)
+        self.create_btn(grid_frame, "1", "posA.py", 0, 0)
+        self.create_btn(grid_frame, "2", "posB.py", 0, 1)
+        self.create_btn(grid_frame, "3", "posC.py", 0, 2)
+        self.create_btn(grid_frame, "4", "posD.py", 0, 3)
+        self.create_btn(grid_frame, "5", "posB.py", 1, 0)
+        self.create_btn(grid_frame, "6", "posB.py", 1, 1)
+        self.create_btn(grid_frame, "7", "posC.py", 1, 2)
+        self.create_btn(grid_frame, "8", "posD.py", 1, 3)
+        self.create_btn(grid_frame, "9", "posA.py", 2, 0)
+        self.create_btn(grid_frame, "10", "posB.py", 2, 1)
+        self.create_btn(grid_frame, "11", "posC.py", 2, 2)
+        self.create_btn(grid_frame, "12", "posD.py", 2, 3)
+        self.create_btn(grid_frame, "13", "posA.py", 3, 0)
+        self.create_btn(grid_frame, "14", "posB.py", 3, 1)
+        self.create_btn(grid_frame, "15", "posC.py", 3, 2)
+        self.create_btn(grid_frame, "16", "posD.py", 3, 3)
 
-        self.btn_back = tk.Button(self, text="Kembali ke Menu", font=FONT_BODY, bg="#95a5a6", fg="white",
-                                  command=lambda: controller.show_frame("ModeSelectionPage"))
+        self.btn_back = tk.Button(self, text="Kembali ke Menu", font=FONT_BODY, bg="#95a5a6", fg="white", command=lambda: controller.show_frame("ModeSelectionPage"))
         self.btn_back.pack(pady=20)
         self.buttons.append(self.btn_back)
 
     def create_btn(self, parent, text, script_name, r, c):
         btn = tk.Button(parent, text=text, **self.btn_params,
                         command=lambda: self.start_thread(script_name))
-        btn.grid(row=r, column=c, padx=15, pady=15)
+        btn.grid(row=r, column=c, padx=0, pady=0)
         self.buttons.append(btn)
 
     def start_thread(self, script_name):
@@ -266,39 +275,57 @@ class SmartSortPage(tk.Frame):
         self.color_options = ["Merah", "Hijau", "Biru", "Kuning"]
         self.selections = {}
 
+        # Upload PNG File
+        self.selected_file = tk.StringVar(value="Belum ada file dipilih")
+        upload_frame = tk.Frame(self, bg=COLOR_ACCENT)
+        upload_frame.pack(pady=5)
+        tk.Button(upload_frame, text="Select PNG File", font=FONT_BODY, bg="#2980b9", fg="white",
+                  command=self.upload_file).pack(side=tk.LEFT, padx=10)
+        tk.Label(upload_frame, textvariable=self.selected_file, font=("Helvetica", 10),
+                 fg="#bdc3c7", bg=COLOR_ACCENT).pack(side=tk.LEFT)
+
         # Dropdown konfigurasi
-        self.create_dropdown(grid_frame, "Posisi A:", "A", 0)
-        self.create_dropdown(grid_frame, "Posisi B:", "B", 1)
-        self.create_dropdown(grid_frame, "Posisi C:", "C", 2)
-        self.create_dropdown(grid_frame, "Posisi D:", "D", 3)
+        # self.create_dropdown(grid_frame, "Posisi A:", "A", 0)
+        # self.create_dropdown(grid_frame, "Posisi B:", "B", 1)
+        # self.create_dropdown(grid_frame, "Posisi C:", "C", 2)
+        # self.create_dropdown(grid_frame, "Posisi D:", "D", 3)
 
         btn_frame = tk.Frame(self, bg=COLOR_ACCENT)
         btn_frame.pack(pady=20)
 
-        self.btn_start = tk.Button(btn_frame, text="MULAI MISI", font=FONT_BTN, 
-                                   bg=COLOR_BTN_2, fg="white", width=20, height=2,
-                                   command=self.start_process)
+        self.btn_start = tk.Button(btn_frame, text="MULAI MISI", font=FONT_BTN,
+                                   bg=COLOR_BTN_2, fg="white", width=20, height=2, command=self.start_process)
         self.btn_start.pack(side=tk.TOP, pady=5)
 
         self.btn_back = tk.Button(btn_frame, text="Kembali ke Menu", font=FONT_BODY, bg="#95a5a6", fg="white",
-                  command=lambda: controller.show_frame("ModeSelectionPage"))
+                                  command=lambda: controller.show_frame("ModeSelectionPage"))
         self.btn_back.pack(side=tk.TOP, pady=10)
+
+    def upload_file(self):
+        """Membuka file dialog untuk memilih file PNG"""
+        file_path = filedialog.askopenfilename(
+            filetypes=[("PNG files", "*.png"), ("All files", "*.*")]
+        )
+        if file_path:
+            print(f"File selected: {file_path}")
+            self.selected_file.set(os.path.basename(file_path))
 
     def create_dropdown(self, parent, label_text, key, row_idx):
         tk.Label(parent, text=label_text, font=("Helvetica", 12, "bold"), fg="white", bg=COLOR_ACCENT).grid(row=row_idx, column=0, padx=20, pady=10, sticky="e")
         var = tk.StringVar()
         combo = ttk.Combobox(parent, textvariable=var, values=self.color_options, state="readonly", font=("Helvetica", 11))
         combo.grid(row=row_idx, column=1, padx=20, pady=10, sticky="w")
-        combo.current(row_idx) 
+        combo.current(row_idx)
         self.selections[key] = var
 
     def start_process(self):
-        colors = {
-            "A": self.selections["A"].get(),
-            "B": self.selections["B"].get(),
-            "C": self.selections["C"].get(),
-            "D": self.selections["D"].get()
-        }
+        # Jika dropdown diaktifkan, uncomment validasi ini:
+        # colors = {
+        #     "A": self.selections["A"].get(),
+        #     "B": self.selections["B"].get(),
+        #     "C": self.selections["C"].get(),
+        #     "D": self.selections["D"].get()
+        # }
 
         if not messagebox.askyesno("Konfirmasi", "Mulai proses Smart Sorting dengan konfigurasi ini?"):
             return
@@ -306,15 +333,16 @@ class SmartSortPage(tk.Frame):
         # UI Locking
         self.btn_start.configure(state=tk.DISABLED, bg="#7f8c8d")
         self.btn_back.configure(state=tk.DISABLED)
-        
-        # Jalankan Thread
-        threading.Thread(target=self._run_thread, args=(colors,)).start()
+
+        # Jalankan Thread (tanpa args warna karena dropdown dinonaktifkan)
+        threading.Thread(target=self._run_thread, args=({},)).start()
 
     def _run_thread(self, colors):
         # Jalankan main_auto.py dengan argumen
-        args = [colors['A'], colors['B'], colors['C'], colors['D']]
+        args = [colors.get('A', ''), colors.get('B', ''), colors.get('C', ''), colors.get('D', '')]
+        args = [a for a in args if a]  # Filter string kosong jika dropdown nonaktif
         success = self.controller.run_script_blocking("main_auto.py", args)
-        
+
         # UI Unlock
         self.after(0, self.unlock_ui)
         if success:
