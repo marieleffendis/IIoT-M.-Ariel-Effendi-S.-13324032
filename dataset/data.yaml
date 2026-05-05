@@ -1,0 +1,12 @@
+path: D:/IIOT/dataset
+
+train: train/images
+val: val/images
+
+names:
+  0: Hitam
+  1: Putih
+  2: blue
+  3: green
+  4: red
+  5: yellow

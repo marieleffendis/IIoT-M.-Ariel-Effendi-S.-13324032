@@ -1,0 +1,10 @@
+MODEL_PATH = "models/best.pt"
+
+GRID_SIZE = 4
+
+CELL_SIZE_MM = 25
+
+OFFSET_X = 100
+OFFSET_Y = 200
+
+WARP_SIZE = 400

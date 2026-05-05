@@ -1,0 +1,6 @@
+Hitam
+Putih
+blue
+green
+red
+yellow
