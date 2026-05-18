@@ -10,16 +10,16 @@ def get_posisi_awal_bg():
     return CustomPosition(171, -42, 55, 6)
 
 def get_predropzone_posA():
-    return CustomPosition(32.5, 199.5, -14.5, 100)
+    return CustomPosition(49, 200, -35, 100)
 
 def get_predropzone_posB():
-    return CustomPosition(-23.2, 200.6, -14.5, 100)
+    return CustomPosition(29, 200, -35, 100)
 
 def get_predropzone_posD():
-    return CustomPosition(-22.5, 247, -14.5, 100)
+    return CustomPosition(9, 200, -35, 100)
 
 def get_predropzone_posC():
-    return CustomPosition(27, 243, -14.5, 100)
+    return CustomPosition(-11, 200, -35, 100)
 
 # ================== GERAK DASAR ==================
 
