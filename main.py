@@ -10,7 +10,7 @@ import paho.mqtt.client as mqtt
 
 # ── Local modules ──────────────────────────────────────────────────────────────
 import utility2
-from config import MODEL_PATH, CAMERA_INDEX, CONVEYOR_SPEED, CONVEYOR_DELAY, MQTT_BROKER, MQTT_TOPIC
+from config import MODEL_PATH
 from vision.hybrid_detector import HybridDetector
 from logic.matcher import match_target
 from logic.state_machine import StateMachine

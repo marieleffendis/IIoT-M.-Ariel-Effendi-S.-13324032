@@ -25,8 +25,6 @@ class DobotIntegratedApp(tk.Tk):
         super().__init__()
         
         self.title("Dobot Magician Integrated System")
-        self.geometry("900x600")
-        self.resizable(False, False)
         self.attributes('-fullscreen', True)
         
         # Variabel Proses Global (agar bisa di-kill via Emergency Stop)
